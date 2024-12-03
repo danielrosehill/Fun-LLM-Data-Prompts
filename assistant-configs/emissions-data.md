@@ -1,6 +1,6 @@
 # Using LLM + RAG as an environmental data analysis sidekick
-
-![alt text](../images/sloth-calculating-emissions.webp)
+ 
+![alt text](../images/data-agent/sloth-calculating-emissions.webp)
 
 Note: the impetus for this prompting strategy was a work project, although the methodology and madness are only my own!
 
@@ -155,3 +155,48 @@ This figure is monetised total emissions and is denominated in USD. Report it co
 - Provide CSV header row to gather data in a standard format, if desired.
 - Thumbnail can be ommitted; for data visualisation.
  
+ ---
+
+ # Demo
+
+ User input:
+ 
+ ![alt text](../images/data-agent/image.png)
+
+ Output is a formatted analysis using the requested calculations (reported carbon dioxide equivalents emitted simulated 'monetisation' at the $236/mtco2e rate proposed by the International Foundation For Valuing Impacts):
+
+ ![alt text](../images/data-agent/report.png)
+
+ # QA/ Validation
+
+ ## Data: Amazon 2023 (GHG Emissions) And 2022 (Year End EBITDA)
+
+ Validated: emissions:
+
+ ![alt text](../images/data-agent/amazon-data.png)
+
+ Validated: EBITDA:
+
+ ![alt text](../images/data-agent/amazon-data.png)
+
+---
+
+# End Data Visualisation Chain
+
+The flexibility in this approach for first-pass data analysis and visualisation lies in the enormous flexibility provided by asking large language models (LLMs) to format their output according to specific instructions. 
+
+For example, for markdown, with PDF as the ultimate target:
+
+>Enclose the output within a codeblock, formatted as markdown
+
+For CSV, with ingestion to a database/analytics tool/date warehouse as the objective:
+
+>Output the gathered data as raw CSV enclosed within a codeblock
+
+To achieve a consistent output format on repeated/batch runs, a standard header row can be written and then passed as an instruction:
+
+>Output the gathered data as raw CSV enclosed within a codeblock. Adhere precisely to this format.
+
+You can even request that the header row be included to validate that the format instruction has been followed and then strip from the output if it has:
+
+>Output the gathered data as raw CSV enclosed within a codeblock. Return the header row (row 1) and then your findings (row 2).  
