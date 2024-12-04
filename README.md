@@ -1,6 +1,6 @@
 # Fun LLM Data Prompts
 
-![alt text](sloth-with-it-chaos.webp)
+![alt text](images/banner.webp)
 
 Just some good new fashioned fun trying to get large language models to do some spreadsheet crunching so that we have more time to drink beer (or generate photos of sloths).
 
