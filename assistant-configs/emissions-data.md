@@ -44,6 +44,10 @@ Then scale all of this up to:
 
 ... all without needing to deal with those pesky legacy technology things called human beings (I kid).
 
+![alt text](../images/data-agent/data-vis.png)
+
+ ![alt text](../images/data-agent/llm-only-workflow.png)
+
 ## Variations & Config Notes
 
 You can add a section to the opener of the configuration designed to guard against hallucinations by including something to this effect or similar:
@@ -60,6 +64,22 @@ The output format can be markdown (if using this as a script). Or you can config
 Another optional end loop:
 
 - JSON is parsed, CSV is extracted, and data is written to database/data warehouse  
+
+## RAG Pipeline Variant
+
+The possibilities are wide!
+
+Rather than rely upon the report data being available in training data, you can:
+
+- 1: Gather the data from a verified source 
+- 2: Vectorise that data in a RAG pipeline 
+- 3: Proceed with the rest of the template as below
+
+Examples of providers of quantity sustainability data that could be included in a data pipeline include:
+
+- [Net Zero Data Public Utility (NZDPU)](https://nzdpu.org)
+- [Carbon Disclosure Project (CDP)](https://cpd.net)
+- [Open Sustainability Index (OSI)](https://www.opensustainabilityindex.org/)
 
 ## Evaluation and Supervision 
 
